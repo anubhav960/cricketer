@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users' Matches List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand mx-5" href="/userHome"> Cricketer </a>
+        <form class="form-inline">
+          <button class="btn btn-light rounded-0 my-5 mx-5 my-sm-0" type="submit"> <a href="/userDashboard/<%=tournamentName%>" class="text-decoration-none text-dark"> Dashboard </a> </button>
+        </form>
+      </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="display-4 text-center mb-3">Matches List</div>
+                <div class="h3 text-center"><%= tournamentName %></div>
+                <div>*CLICK ON MATCH INDEX TO SEE SCORE</div>
+                <table class="table table-striped">
+                    <thead class="bg-dark text-light">
+                        <tr>
+                            <td> # </td>
+                            <td>Team 1</td>
+                            <td>Team2</td>
+                            <td>Date and Time</td>
+                            <td>Format</td>
+                        </tr>
+                    </thead>
+                    <% let index=1 %>
+                        <% listItems.matches.forEach(function(item) { %>
+                            <tr>
+                                <td>
+                                    <a href="/scoreDisplay/<%=tournamentName%>/<%=index-1%>">
+                                        <%= index %>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= item.team1 %>
+                                </td>
+                                <td>
+                                    <%= item.team2 %>
+                                </td>
+                                <td>
+                                    <%= item.date %>
+                                </td>
+                                <td>
+                                    <%= item.format %>
+                                </td>
+                            </tr>
+                            <% index++ %>
+                        <% }) %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

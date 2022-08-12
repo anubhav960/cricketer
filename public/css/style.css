@@ -1,0 +1,13 @@
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.imghov {
+    transition: all 0.5s ease;
+}
+
+.imghov:hover {
+    transform: scale(1.1);
+    border: 1px solid black;
+}

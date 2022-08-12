@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricketer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <a class="navbar-brand mx-5"> Cricketer </a>
+        <form class="form-inline">
+            <button class="btn btn-light rounded-0 my-5 mx-5 my-sm-0" type="submit"> <a href="login"
+                    class="text-decoration-none text-dark"> Admin Login </a> </button>
+        </form>
+    </nav>
+    <div class="container-fluid d-flex justify-content-center align-items-center m-0 bg-light row">
+        <div class="w-50 bg-dark text-light p-5 m-4">
+            <div class="display-6">Welcome to Cricketer!</div>
+            <p class="h5 text-muted my-4">
+                A place where you can find details of your favourite cricket tournamnets.
+            </p>
+            <p>You can see a list of tournaments, the teams playing in the tournament, the matches scheduled, live scores of respective matches and a leaderboard of the respective tournament all at one place!</p>
+            <button class="btn btn-light text-dark px-3 py-2 my-3 rounded-0"> <a href="#cards" class="text-decoration-none text-dark"> Know More </a></button>
+        </div>
+        <img src="imgs/image.png" style="width: 500px;" alt="" class="">
+    </div>
+
+
+    <!--Cards section-->
+    <a name="cards">
+    <div class="row row-cols-1 row-cols-md-3 g-4 text-center m-5">
+        <div class="col">
+          <div class="card h-100">
+            <img src="imgs/team.jpg" class="card-img-top h-75 imghov" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">View Teams</h5>
+              <p class="card-text">In this section, you will find the list of teams that are playing the tournament. Teams can only be created by the admin. </p>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="imgs/match.jpg" class="card-img-top h-75 imghov" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">View Matches</h5>
+              <p class="card-text">This section displays the matches scheduled in the tournamnet. You can click on a particular match to view the score in that match.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="imgs/leaderboard.jpg" class="card-img-top h-75 imghov" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Leaderboard</h5>
+              <p class="card-text">This section displays the leaderboard where the teams are arranged in ranks according the the number of matches that they have won.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <hr >
+    </a>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="display-4 text-center mb-3">Tournament List</div>
+                <p>Click on a tournamnet to view its details.</p>
+                <table class="table table-striped">
+                    <thead class="bg-dark text-light">
+                        <tr>
+                            <td> # </td>
+                            <td class="w-75">Tournaments Name</td>
+
+                        </tr>
+                    </thead>
+                    <% let index=1 %>
+                        <% listItems.forEach(function(item) { %>
+                            <tr>
+                                <td>
+                                    <%= index %>
+                                </td>
+                                <td>
+                                    <a class="text-decoration-none text-dark"
+                                        href="userDashboard/<%=item.tournamentName %>">
+                                        <%= item.tournamentName %>
+                                    </a>
+                                </td>
+
+                            </tr>
+                            <% index++ %>
+                                <% }) %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
